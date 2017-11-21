@@ -1,5 +1,5 @@
 # AVSignSeek
-Tool written in python3 to determine on which pattern the AV signature is based on
+Tool written in python3 to determine where the AV signature is located in a binary/payload
 
 ## Usage 
 
