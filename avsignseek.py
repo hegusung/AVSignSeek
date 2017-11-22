@@ -26,7 +26,7 @@ def strings(binary, min=4):
 def print_res(infected_file, start, end, output_file):
     out = open(output_file, "w")
 
-    out.write("=== AVSignSeek ===")
+    out.write("=== AVSignSeek ===\n")
 
     print("[+] Signature between bytes %d and %d" % (start, end))
     out.write("[+] Signature between bytes %d and %d\n" % (start, end))
