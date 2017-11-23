@@ -37,6 +37,7 @@ optional arguments:
 ```
 
 ## Output example
+Reflective DLL caught by Kaspersky AV, the signature based on the exported dll function name "ReflectiveLoader"
 
 ```
 === AVSignSeek ===
@@ -51,3 +52,19 @@ optional arguments:
 > ReflectiveLoader
 > func_test
 ```
+
+## Troubleshooting
+
+### False Positives due to binary header
+
+While trying to locate the AV signature, the AVSignSeek might break a header or another way used by the AV to determine the file type, and the AV won't detect the file as malicious anymore, resulting in a false positive.
+It can be prevented by using the start byte and end byte option (-s and -e) to remove the "header" from the analysis
+
+### Unable to locate the signature
+
+If there is multiple signature in a single payload, AVSignSeek won't be able to locate them
+
+## Future developments
+
+* Multiple signature detection
+* PE-specific signature detection (it will detect in which section/exported function/... the signature is located)
