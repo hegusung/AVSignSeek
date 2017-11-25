@@ -80,3 +80,16 @@ def get_ranges_from_str(ranges_str, file_size):
             res.append((start, end))
 
     return union(res)
+
+def get_replacing_value_from_str(replacing_value_str):
+    if replacing_value_str.startswith("0x"):
+        replacing_value = int(replacing_value_str, 16)
+    elif len(replacing_value_str) != 1:
+        raise Exception("Wrong replacing value, you can specify a byte by starting it with '0x' or a single Ascii character")
+    else:
+        replacing_value = ord(replacing_value_str)
+
+    if replacing_value < 0 or replacing_value > 255:
+        raise Exception("Wrong replacing value, you can specify a byte by starting it with '0x' or a single Ascii character")
+
+    return replacing_value

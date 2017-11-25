@@ -3,7 +3,7 @@ import time
 from utils import generate_ranges, union
 
 # RAW analysis: perform analysis on selected parts without considering the file type
-def raw_analysis(file_bin, analysed_parts, sign_min_size, subdiv, sleep):
+def raw_analysis(file_bin, analysed_parts, sign_min_size, subdiv, sleep, replacing_value=0):
     # Each part to be analysed will be divided 'subdiv' times if each subdivision is higher than sign_min_size
     range_list, minimal_range_set = generate_ranges(analysed_parts, subdiv, sign_min_size)
 
@@ -23,7 +23,7 @@ def raw_analysis(file_bin, analysed_parts, sign_min_size, subdiv, sleep):
 
         f = open(filepath, "wb")
         f.write(file_bin[0:r[0]])
-        f.write(b"\x00"*(r[1]+1-r[0]))
+        f.write(bytes([replacing_value])*(r[1]+1-r[0]))
         f.write(file_bin[r[1]+1:])
         f.close()
 
