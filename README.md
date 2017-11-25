@@ -35,14 +35,15 @@ positional arguments:
   zip_file
 
 optional arguments:
-  -h, --help       show this help message and exit
-  -s SLEEP         waiting time between 2 tests (default: 20)
-  -p ZIP_PASSWORD  zip password (default: infected)
-  -f FILENAME      file name contained in the zip (default: infected.bin)
-  -l LIMIT_SIGN    signature limit (default: 64)
-  -d SUBDIV        subdiv per step (default: 4)
-  -o OUTPUT_FILE   output_file (default: output.txt)
-  -r RANGES_STR    range (default: ":")
+  -h, --help          show this help message and exit
+  -s SLEEP            waiting time between 2 tests (default: 20)
+  -p ZIP_PASSWORD     zip password (default: infected)
+  -f FILENAME         file name contained in the zip (default: infected.bin)
+  -l LIMIT_SIGN       signature limit (default: 64)
+  -d SUBDIV           subdiv per step (default: 4)
+  -o OUTPUT_FILE      output_file (default: output.txt)
+  -r RANGES_STR       range (default: ":")
+  -b REPLACING_VALUE  character or byte used as a replacing value (default: "0x00")
 ```
 
 ## Output example

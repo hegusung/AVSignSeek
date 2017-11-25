@@ -28,7 +28,7 @@ def main(args):
     print_results(file_bin, signature_range_list, args.output_file)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Automatically detects AV Signatures")
+    parser = argparse.ArgumentParser(description="Automatically detects AV Signatures", formatter_class=lambda prog: argparse.HelpFormatter(prog,max_help_position=100, width=100))
     parser.add_argument("zip_file")
     parser.add_argument('-s', help='waiting time between 2 tests (default: 20)', dest='sleep', default=20, type=int)
     parser.add_argument('-p', help='zip password (default: infected)', dest='zip_password', default="infected")
