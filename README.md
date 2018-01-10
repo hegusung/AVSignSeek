@@ -16,7 +16,7 @@ The tool will drop multiple files on the disk to determine on which pattern the 
 
 Once done, the result will be printed in stdout and a file (output.txt by default) containing the result will be generated.
 
-If you known approximatly where your signature is located, you can specify one or more range in the payload to be analysed using the -r option. In the following example AVSignSeek will only try to find a signature in the following ranges:
+If you know approximatly where your signature is located, you can specify one or more range in the payload to be analysed using the -r option. In the following example AVSignSeek will only try to find a signature in the following ranges:
 * 0-256
 * 336-416
 * 432-endofpayload
