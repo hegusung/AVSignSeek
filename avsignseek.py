@@ -22,7 +22,7 @@ def main(args):
         print("\n%s" % str(e))
         sys.exit(1)
 
-    signature_range_list = raw_analysis(file_bin, analysed_parts, args.limit_sign, args.test_dir, args.subdiv, args.sleep, replacing_value=replacing_value)
+    signature_range_list = raw_analysis(file_bin, analysed_parts, args.limit_sign, args.test_dir, args.subdiv, args.manual, args.sleep, replacing_value=replacing_value)
     signature_range_list = union(signature_range_list)
 
     print_results(file_bin, signature_range_list, args.output_file)
@@ -39,6 +39,7 @@ if __name__ == "__main__":
     parser.add_argument('-o', help='output_file (default: output.txt)', dest='output_file', default="output.txt")
     parser.add_argument('-r', help='range (default: ":")', dest='ranges_str', default=":", type=str)
     parser.add_argument('-b', help='character or byte used as a replacing value (default: "0x00")', dest='replacing_value', default="0x00", type=str)
+    parser.add_argument('--manual', help='wait for a manual input instead of a specific time (default: false)', dest='manual', action="store_true")
 
     args = parser.parse_args()
 

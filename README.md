@@ -45,6 +45,7 @@ optional arguments:
   -o OUTPUT_FILE      output_file (default: output.txt)
   -r RANGES_STR       range (default: ":")
   -b REPLACING_VALUE  character or byte used as a replacing value (default: "0x00")
+  --manual            wait for a manual input instead of a specific time (default: false)
 ```
 
 ## Output example
