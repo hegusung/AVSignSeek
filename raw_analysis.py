@@ -3,7 +3,7 @@ import time
 from utils import generate_ranges, union
 
 # RAW analysis: perform analysis on selected parts without considering the file type
-def raw_analysis(file_bin, analysed_parts, sign_min_size, subdiv, sleep, replacing_value=0):
+def raw_analysis(file_bin, analysed_parts, sign_min_size, test_dir, subdiv, manual, sleep, replacing_value=0):
     # Each part to be analysed will be divided 'subdiv' times if each subdivision is higher than sign_min_size
     range_list, minimal_range_set = generate_ranges(analysed_parts, subdiv, sign_min_size)
 
@@ -18,7 +18,7 @@ def raw_analysis(file_bin, analysed_parts, sign_min_size, subdiv, sleep, replaci
     print("[i] Creating %d test files..." % len(range_list), end="")
 
     for i, r in enumerate(range_list):
-        filepath = os.path.join(".", "test-%s.bin" % i)
+        filepath = os.path.join(test_dir, "test-%s.bin" % i)
         range_file_dict[filepath] = r
 
         f = open(filepath, "wb")
@@ -29,7 +29,10 @@ def raw_analysis(file_bin, analysed_parts, sign_min_size, subdiv, sleep, replaci
 
     print("Done")
 
-    time.sleep(sleep)
+    if not manual:
+        time.sleep(sleep)
+    else:
+        _ = input("Press any key to continue...")
 
     found_sign = False
     for filepath, r in range_file_dict.items():
@@ -49,6 +52,6 @@ def raw_analysis(file_bin, analysed_parts, sign_min_size, subdiv, sleep, replaci
         print("[i] Unable to get a more precise location of the signature")
         return new_range_list
     else:
-        return raw_analysis(file_bin, new_range_list, sign_min_size, subdiv, sleep)
+        return raw_analysis(file_bin, new_range_list, sign_min_size, test_dir, subdiv, manual, sleep)
 
 

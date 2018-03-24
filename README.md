@@ -16,7 +16,7 @@ The tool will drop multiple files on the disk to determine on which pattern the 
 
 Once done, the result will be printed in stdout and a file (output.txt by default) containing the result will be generated.
 
-If you known approximatly where your signature is located, you can specify one or more range in the payload to be analysed using the -r option. In the following example AVSignSeek will only try to find a signature in the following ranges:
+If you know approximatly where your signature is located, you can specify one or more range in the payload to be analysed using the -r option. In the following example AVSignSeek will only try to find a signature in the following ranges:
 * 0-256
 * 336-416
 * 432-endofpayload
@@ -40,10 +40,12 @@ optional arguments:
   -p ZIP_PASSWORD     zip password (default: infected)
   -f FILENAME         file name contained in the zip (default: infected.bin)
   -l LIMIT_SIGN       signature limit (default: 64)
-  -d SUBDIV           subdiv per step (default: 4)
+  -d TEST_DIR         directory where testfiles will be placed (default: .)
+  --subdiv SUBDIV     subdiv per step (default: 4)
   -o OUTPUT_FILE      output_file (default: output.txt)
   -r RANGES_STR       range (default: ":")
   -b REPLACING_VALUE  character or byte used as a replacing value (default: "0x00")
+  --manual            wait for a manual input instead of a specific time (default: false)
 ```
 
 ## Output example
