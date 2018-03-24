@@ -17,7 +17,7 @@ def print_results(file_bin, signature_range_list, output_file):
         b = file_bin[start:end]
         while len(b) > 0:
             row = b[:16]
-            output_line =  b"".join([b"%.2x " % c for c in row]).decode().ljust(60)
+            output_line =  "".join(["{:02x} ".format(c) for c in row]).ljust(60)
             output_line += "".join([chr(c) if chr(c) in string.printable[:-5] else "." for c in row])
             print(output_line)
             out.write(output_line + "\n")
